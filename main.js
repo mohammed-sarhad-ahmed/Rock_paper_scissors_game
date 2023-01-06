@@ -16,48 +16,49 @@ function getPlayerChoice() {
 }
 
 function singleGame(computerSelection, playerSelection) {
-    if (computerSelection === playerSelection) {
-        return `you choice ${playerSelection} and computer also choice ${computerSelection} it is draw`
-    }
+    switch (true) {
+        case (computerSelection === playerSelection):
+            alert("draw")
+            break;
+        case (computerSelection === "rock" && playerSelection === "paper"):
+            alert(`You choice ${playerSelection} And the computer choice rock, You win ! `)
+            playerWinCount++
+            break;
 
-    else if (computerSelection === "rock" && playerSelection === "paper") {
+        case (computerSelection === "paper" && playerSelection === "rock"):
+            alert(`You choice ${playerSelection} And the computer choice rock, You lose! `)
+            computerWinCount++
+            break;
 
-        playerWinCount++
-        return `You choice ${playerSelection} And the computer choice ${computerSelection}, You win the round !
-         `
+        case (computerSelection === "paper" && playerSelection === "scissors"):
+            alert(`You choice ${playerSelection} And the computer choice rock, You win! `)
+            playerWinCount++
+            break;
 
+        case (computerSelection === "scissors" && playerSelection === "paper"):
+            alert(`You choice ${playerSelection} And the computer choice rock, You lose! `)
+            computerWinCount++
+            break;
 
-    }
-    else if (computerSelection === "paper" && playerSelection === "rock") {
+        case (computerSelection === "scissors" && playerSelection === "rock"):
+            alert(`You choice ${playerSelection} And the computer choice rock, You win! `)
+            playerWinCount++
+            break;
 
-        computerWinCount++
-        return `You choice ${playerSelection} And the computer choice ${computerSelection}, You lose the round ! `
+        case (computerSelection === "rock" && playerSelection === "scissors"):
+            alert(`You choice ${playerSelection} And the computer choice rock, You lose! `)
+            computerWinCount++
 
-    }
-    else if (computerSelection === "paper" && playerSelection === "scissors") {
-        playerWinCount++
-        return `You choice ${playerSelection} And the computer choice ${computerSelection}, You win the round !`
-    }
-    else if (computerSelection === "scissors" && playerSelection === "paper") {
-        computerWinCount++
-        return `You choice ${playerSelection} And the computer choice ${computerSelection}, You lose the round !`
-    }
-    else if (computerSelection === "scissors" && playerSelection === "rock") {
-        playerWinCount++
-        return `You choice ${playerSelection} And the computer choice ${computerSelection}, You win the round! `
-    }
-    else if (computerSelection === "rock" && playerSelection === "scissors") {
-        computerWinCount++
-        return `You choice ${playerSelection} And the computer choice ${computerSelection}, You lost the round ! `
-    }
-    else {
-        return "invalid"
+            break;
+
+        default:
+            alert("invalid choice")
     }
 
 }
 
 function game() {
-    alert(singleGame(getComputerChoice(), getPlayerChoice()))
+     singleGame(getComputerChoice(), getPlayerChoice())
 }
 for (let i = 0; i < 5; i++) {
     game()
@@ -72,22 +73,3 @@ else if (playerWinCount === computerWinCount) {
 else {
     alert(`you scored ${playerWinCount}, the computer scored ${computerWinCount}, you lost the game !`)
 }
-
-// switch (computerSelection, playerSelection) {
-//     case computerSelection == playerSelection:
-//         return "draw"
-//     case computerSelection === "rock" && playerSelection === "paper":
-//         return `You choice ${playerSelection} And the computer choice rock, You win ! `
-//     case computerSelection === "paper" && playerSelection === "rock":
-//         return `You choice ${playerSelection} And the computer choice rock, You lose ! `
-//     case computerSelection === "paper" && playerSelection === "scissors":
-//         return `You choice ${playerSelection} And the computer choice rock, You lose ! `
-//     case computerSelection === "scissors" && playerSelection === "paper":
-//         return `You choice ${playerSelection} And the computer choice rock, You win ! `
-//     case computerSelection === "scissors" && playerSelection === "rock":
-//         return `You choice ${playerSelection} And the computer choice rock, You win ! `
-//     case computerSelection === "rock" && playerSelection === "scissors":
-//         return `You choice ${playerSelection} And the computer choice rock, You win ! `
-//     default:
-//         return "invalid choice"
-// }
