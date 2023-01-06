@@ -58,18 +58,15 @@ function singleGame(computerSelection, playerSelection) {
 }
 
 function game() {
-     singleGame(getComputerChoice(), getPlayerChoice())
+    singleGame(getComputerChoice(), getPlayerChoice())
 }
 for (let i = 0; i < 5; i++) {
     game()
 }
 
-if (playerWinCount > computerWinCount) {
-    alert(`you scored ${playerWinCount}, the computer scored ${computerWinCount}, congratulations you won the game !`)
-}
-else if (playerWinCount === computerWinCount) {
-    alert(`you scored ${playerWinCount}, the computer scored ${computerWinCount}, it is a draw !`)
-}
-else {
-    alert(`you scored ${playerWinCount}, the computer scored ${computerWinCount}, you lost the game !`)
-}
+(playerWinCount > computerWinCount) ?
+    alert(`you scored ${playerWinCount}, the computer scored ${computerWinCount}, congratulations you won the game !`) :
+
+    (playerWinCount === computerWinCount) ?
+        alert(`you scored ${playerWinCount}, the computer scored ${computerWinCount}, it is a draw !`) :
+        alert(`you scored ${playerWinCount}, the computer scored ${computerWinCount}, you lost the game !`);
