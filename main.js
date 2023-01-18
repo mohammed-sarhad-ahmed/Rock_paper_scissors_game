@@ -1,72 +1,104 @@
 let possibleChoices = ["rock", "paper", "scissors"]
 let playerWinCount = 0
 let computerWinCount = 0
+let gameCount = 0
+const rock = document.querySelector("#rock")
+const paper = document.querySelector("#paper")
+const scissors = document.querySelector("#scissors")
+const playerObjCount = document.querySelector("#player")
+const compObjCount = document.querySelector("#comp")
+
+
 function getComputerChoice() {
 
     let comp = possibleChoices[Math.floor(Math.random() * possibleChoices.length)]
     return comp
 }
 
-
-function getPlayerChoice() {
-
-    let ask = (prompt("choice between rock paper scissors")).toLocaleLowerCase()
-    return ask
-
-}
-
 function singleGame(computerSelection, playerSelection) {
     switch (true) {
         case (computerSelection === playerSelection):
-            alert("draw")
             break;
         case (computerSelection === "rock" && playerSelection === "paper"):
-            alert(`You choice ${playerSelection} And the computer choice rock, You win ! `)
             playerWinCount++
+            playerObjCount.innerText = playerWinCount
             break;
 
         case (computerSelection === "paper" && playerSelection === "rock"):
-            alert(`You choice ${playerSelection} And the computer choice rock, You lose! `)
             computerWinCount++
+            compObjCount.innerText = computerWinCount
             break;
 
         case (computerSelection === "paper" && playerSelection === "scissors"):
-            alert(`You choice ${playerSelection} And the computer choice rock, You win! `)
             playerWinCount++
+            playerObjCount.innerText = playerWinCount
             break;
 
         case (computerSelection === "scissors" && playerSelection === "paper"):
-            alert(`You choice ${playerSelection} And the computer choice rock, You lose! `)
             computerWinCount++
+            compObjCount.innerText = computerWinCount
+
             break;
 
         case (computerSelection === "scissors" && playerSelection === "rock"):
-            alert(`You choice ${playerSelection} And the computer choice rock, You win! `)
             playerWinCount++
+            playerObjCount.innerText = playerWinCount
             break;
 
         case (computerSelection === "rock" && playerSelection === "scissors"):
-            alert(`You choice ${playerSelection} And the computer choice rock, You lose! `)
             computerWinCount++
+            compObjCount.innerText = computerWinCount
 
             break;
 
-        default:
-            alert("invalid choice")
     }
 
 }
 
-function game() {
-    singleGame(getComputerChoice(), getPlayerChoice())
-}
-for (let i = 0; i < 5; i++) {
-    game()
-}
+rock.addEventListener("click", (e) => {
+    gameCount++
+    console.log(gameCount)
+    singleGame(getComputerChoice(), "rock")
+    end()
+})
+paper.addEventListener("click", (e) => {
+    gameCount++
+    console.log(gameCount)
+    singleGame(getComputerChoice(), "paper")
+    end()
+})
+scissors.addEventListener("click", (e) => {
+    gameCount++
+    console.log(gameCount)
+    singleGame(getComputerChoice(), "scissors")
+    end()
+})
+function end() {
+    if (gameCount >= 5) {
+        rock.disabled = true
+        paper.disabled = true
+        scissors.disabled = true
+        if (playerWinCount === computerWinCount) {
+            console.log("draw")
+        }
 
-(playerWinCount > computerWinCount) ?
-    alert(`you scored ${playerWinCount}, the computer scored ${computerWinCount}, congratulations you won the game !`) :
+        else if (playerWinCount <= computerWinCount) {
+            console.log("you lose")
 
-    (playerWinCount === computerWinCount) ?
-        alert(`you scored ${playerWinCount}, the computer scored ${computerWinCount}, it is a draw !`) :
-        alert(`you scored ${playerWinCount}, the computer scored ${computerWinCount}, you lost the game !`);
+        }
+
+        else {
+            console.log("you win")
+
+        }
+        const reset = document.createElement("button")
+        reset.innerText = "reset"
+        document.querySelector(".buttons").append(reset)
+        reset.addEventListener("click", () => {
+            window.location.reload();
+
+        })
+
+    }
+
+}
