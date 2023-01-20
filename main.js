@@ -91,39 +91,7 @@ function singleGame(computerSelection, playerSelection) {
 human.addEventListener("click", imgy,)
 
 function imgy(e) {
-    let ask = getComputerChoice()
-    if (ask === "rock") {
-        rocky.classList.remove("change")
-        setTimeout(() => {
-            rocky.classList.add("change")
-
-        }, 200)
-        papery.classList.remove("change")
-        scissorsy.classList.remove("change")
-        rocky.classList.remove("change")
-
-    }
-    else if (ask === "paper") {
-        setTimeout(() => {
-            papery.classList.add("change")
-            0
-        }, 200)
-        rocky.classList.remove("change")
-        scissorsy.classList.remove("change")
-        papery.classList.remove("change")
-
-    }
-    else if (ask === "scissors") {
-        rocky.classList.remove("change")
-        papery.classList.remove("change")
-        scissorsy.classList.remove("change")
-        setTimeout(() => {
-            scissorsy.classList.add("change")
-
-        }, 200)
-    }
     let theId = e.target.id
-    singleGame(ask, theId)
     if (theId === "rock") {
         rock.classList.remove("click")
         setTimeout(() => {
@@ -156,6 +124,42 @@ function imgy(e) {
 
         }, 200)
     }
+
+    let ask = getComputerChoice()
+    if (e.target.id) {
+        if (ask === "rock") {
+            rocky.classList.remove("change")
+            setTimeout(() => {
+                rocky.classList.add("change")
+
+            }, 200)
+            papery.classList.remove("change")
+            scissorsy.classList.remove("change")
+            rocky.classList.remove("change")
+
+        }
+        else if (ask === "paper") {
+            setTimeout(() => {
+                papery.classList.add("change")
+                0
+            }, 200)
+            rocky.classList.remove("change")
+            scissorsy.classList.remove("change")
+            papery.classList.remove("change")
+
+        }
+        else if (ask === "scissors") {
+            rocky.classList.remove("change")
+            papery.classList.remove("change")
+            scissorsy.classList.remove("change")
+            setTimeout(() => {
+                scissorsy.classList.add("change")
+
+            }, 200)
+        }
+    }
+    singleGame(ask, theId)
+
 
 
 
