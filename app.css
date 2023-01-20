@@ -1,0 +1,100 @@
+body {
+    background-color: #051622;
+    margin: 0px;
+    font-family: 'Nabla', cursive;
+
+}
+
+section {
+    color: #FF6A3D;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    background-color: #e10c0c;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+    padding-bottom: 40px;
+    font-size: 40px;
+
+}
+
+#align {
+    display: flex;
+    justify-content: center;
+}
+
+
+.imgs {
+    display: flex;
+    margin-top: 200px;
+    justify-content: center;
+    gap: 200px;
+
+}
+
+.img {
+    width: 150px;
+    height: 100px;
+
+}
+
+.human {
+    width: 600px;
+    height: 200px;
+    background-color: #FF6A3D;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 100px;
+    gap: 80px;
+
+}
+
+
+
+.dude {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.comp {
+    background-color: #0408d2;
+}
+
+.list {
+    color: #0408d2;
+    border-radius: 20%;
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+
+}
+
+.reset {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.hover {
+    background-color: green;
+    border: groove 5px #e10c0c;
+}
+
+.click {
+    background: #650ce1;
+    border: #FF6A3D 5px solid;
+}
+
+.change {
+    background-color: #e10c0c;
+    border: #FF6A3D 5px solid;
+
+}
